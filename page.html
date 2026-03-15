@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Ultimate Child Education Center · professional</title>
+    <!-- Font Awesome 6 (Free) - CDN officiel avec toutes les icônes -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.2/css/all.css">
+    <!-- CDN Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        /* ----- RESET & VARIABLES ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fcf3e6;
+            font-family: 'Inter', sans-serif;
+            color: #1e2b3a;
+            line-height: 1.4;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ----- FIXED HEADER ----- */
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 252, 245, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #ffdbb5;
+            padding: 10px 20px;
+        }
+
+        .navbar {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background: #f4b740;
+            width: 44px;
+            height: 44px;
+            border-radius: 16px 6px 16px 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.7rem;
+            box-shadow: 0 6px 0 #c48b2f;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #263b4a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 6px 18px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #2f4052;
+            padding: 8px 4px;
+            border-bottom: 3px solid transparent;
+            transition: 0.15s;
+            font-size: 0.75rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-links a i {
+            font-size: 1.1rem;
+            color: #f4b740;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover i,
+        .nav-links a:hover {
+            color: #e0872e;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #f4b740;
+        }
+
+        .nav-links .active-nav {
+            border-bottom-color: #f4b740;
+            color: #1e2b3a;
+        }
+
+        .nav-links .active-nav i {
+            color: #e0872e;
+        }
+
+        .nav-button {
+            background: #f4b740;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+            color: #1e2b3a !important;
+            box-shadow: 0 5px 0 #b57c28;
+        }
+
+        .nav-button:hover {
+            background: #ffc85c;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 0 #b07622;
+            border-bottom-color: transparent !important;
+        }
+
+        .spacer {
+            height: 90px;
+        }
+
+        /* ----- MAIN CONTENT ----- */
+        .site-wrapper {
+            max-width: 1300px;
+            width: 100%;
+            background: rgba(255, 253, 248, 0.8);
+            backdrop-filter: blur(8px);
+            border-radius: 48px 48px 36px 36px;
+            box-shadow: 0 30px 45px -20px #946b40;
+            border: 1px solid #ffeee0;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .main-content {
+            padding: 20px 34px 30px 34px;
+        }
+
+        /* ----- HERO SECTION ----- */
+        .hero-picto {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .hero-text {
+            flex: 2 1 300px;
+        }
+
+        .hero-images {
+            flex: 1 1 200px;
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .hero-images img {
+            width: 190px;
+            height: 180px;
+            border-radius: 40px 10px 40px 10px;
+            object-fit: cover;
+            border: 4px solid white;
+            transition: all 0.4s;
+            animation: gentle-float 6s infinite alternate ease-in-out;
+            box-shadow: 0 12px 0 #e5cfb3;
+        }
+
+        .hero-images img:nth-child(2) {
+            animation-delay: 0.7s;
+            border-radius: 10px 40px 10px 40px;
+        }
+
+        @keyframes gentle-float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 6vw, 3.8rem);
+            font-weight: 800;
+            color: #1f2e3f;
+            margin-bottom: 18px;
+        }
+
+        .hero-title span {
+            color: #e2892c;
+        }
+
+        .welcome-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,241,215,0.9);
+            padding: 8px 24px 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 22px;
+            border: 1px solid #fad19e;
+        }
+
+        .welcome-badge i {
+            font-size: 1.5rem;
+            color: #f4b740;
+        }
+
+        /* ----- AWARD STRIP ----- */
+        .award-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px 35px;
+            margin: 22px 0 28px;
+        }
+
+        .award-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffffffcc;
+            padding: 8px 24px 8px 18px;
+            border-radius: 40px;
+            border: 1px solid #fde3c2;
+            box-shadow: 0 4px 0 #e7cfaf;
+        }
+
+        .award-item i {
+            font-size: 1.8rem;
+            color: #f4b740;
+        }
+
+        .award-item.highlight span {
+            background: #f9dcaa;
+            padding: 7px 22px;
+            border-radius: 40px;
+            font-weight: 700;
+        }
+
+        /* ----- KPI GRID ----- */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+            margin: 35px 0 40px;
+        }
+
+        .kpi-card {
+            background: white;
+            border-radius: 30px;
+            padding: 20px 8px;
+            text-align: center;
+            box-shadow: 0 12px 0 #e5cfb3, 0 15px 25px -12px #b69263;
+            border: 2px solid #fbe4c2;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 17px 0 #dbbc94;
+        }
+
+        .kpi-icon {
+            font-size: 2.4rem;
+            color: #f4b740;
+        }
+
+        .kpi-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #1e384b;
+        }
+
+        .kpi-label {
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: #5b4a33;
+        }
+
+        /* ----- TWO COLUMNS PARENTS / EVENTS ----- */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin: 35px 0 40px;
+        }
+
+        .testimonial-card,
+        .event-card {
+            background: white;
+            border-radius: 40px;
+            padding: 30px;
+            box-shadow: 0 16px 0 #ecd0b1, 0 20px 25px -12px #b58f60;
+            border: 2px solid #ffe3bf;
+        }
+
+        .testimonial-header,
+        .event-header {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .testimonial-header i,
+        .event-header i {
+            font-size: 2.2rem;
+            color: #f4b740;
+        }
+
+        .testimonial-header h2,
+        .event-header h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .testimonial-avatar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .testimonial-avatar img {
+            width: 65px;
+            height: 65px;
+            border-radius: 30px 10px 30px 10px;
+            object-fit: cover;
+            border: 3px solid #f4b740;
+        }
+
+        .parents-bottom-photo {
+            margin-top: 25px;
+            width: 100%;
+            border-radius: 30px 10px 30px 10px;
+            border: 4px solid #f4b740;
+            box-shadow: 0 12px 0 #e5cfb3, 0 10px 20px -8px #946b40;
+            object-fit: cover;
+            max-height: 220px;
+            transition: transform 0.3s;
+        }
+
+        .parents-bottom-photo:hover {
+            transform: scale(1.01);
+        }
+
+        .event-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+
+        .event-date {
+            background: #f4b740;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 22px 8px 22px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            box-shadow: 0 7px 0 #b8822b;
+        }
+
+        .event-date .day {
+            font-size: 1.8rem;
+        }
+
+        .event-date .month {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .event-thumb {
+            width: 50px;
+            height: 50px;
+            border-radius: 20px;
+            object-fit: cover;
+            margin-left: auto;
+            border: 2px solid #f4b740;
+        }
+
+        /* ----- BANNER ----- */
+        .level-banner {
+            background: linear-gradient(105deg, #215164, #1f4d5c);
+            border-radius: 60px;
+            padding: 32px 38px;
+            margin: 30px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 20px 0 #15333e;
+            border: 1px solid #7ea5b2;
+        }
+
+        .level-text {
+            font-size: clamp(1.4rem, 4vw, 2.6rem);
+            font-weight: 800;
+            color: white;
+        }
+
+        .level-link {
+            background: #f4b740;
+            padding: 15px 35px;
+            border-radius: 60px;
+            font-weight: 700;
+            color: #1f2f3a;
+            text-decoration: none;
+            border: 2px solid #ffdcaa;
+            box-shadow: 0 9px 0 #b07625;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .key-tagline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background: #fbedd7;
+            border-radius: 70px;
+            padding: 16px 28px;
+            margin: 25px 0 35px;
+            border: 2px solid #f4b740;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* ----- PROGRAMS ----- */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 20px 0 40px;
+        }
+
+        .program-card {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 10px 0 #ecd0b1;
+            border: 2px solid #ffe3bf;
+        }
+
+        .program-card i {
+            font-size: 3rem;
+            color: #f4b740;
+            margin-bottom: 10px;
+        }
+
+        /* ----- NEWS ----- */
+        .news-section {
+            margin: 35px 0 25px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .section-header h2 i {
+            color: #f4b740;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 35px;
+            overflow: hidden;
+            box-shadow: 0 14px 0 #ebd2b4;
+            border: 2px solid #fbdfbc;
+        }
+
+        .news-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 0 #ddc09b;
+        }
+
+        .news-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 3px solid #f4b740;
+        }
+
+        .news-content {
+            padding: 18px;
+        }
+
+        .news-meta {
+            color: #f4b740;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .read-more {
+            color: #f4b740;
+            font-weight: 600;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        /* ----- CONTACT SECTION (ENRICHIE) ----- */
+        .contact-section {
+            background: #fef7ec;
+            border-radius: 50px;
+            padding: 40px 40px 35px;
+            margin: 45px 0 25px;
+            border: 2px solid #f4cf9c;
+            box-shadow: 0 15px 0 #e0c099;
+        }
+
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1e2b3a;
+        }
+
+        .contact-info h3 i {
+            color: #f4b740;
+            font-size: 2rem;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 30px;
+            margin: 25px 0 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .contact-item i {
+            width: 24px;
+            color: #f4b740;
+            font-size: 1.3rem;
+            margin-top: 3px;
+        }
+
+        .contact-item p {
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .contact-item strong {
+            display: block;
+            font-weight: 600;
+            color: #2d4a5a;
+            margin-bottom: 3px;
+        }
+
+        .contact-item span {
+            color: #4a5f6e;
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 260px;
+            background: white;
+            padding: 25px;
+            border-radius: 40px;
+            box-shadow: 0 8px 0 #e0c099;
+            border: 2px solid #fad09c;
+        }
+
+        .contact-form h4 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #2d4a5a;
+        }
+
+        .contact-form h4 i {
+            color: #f4b740;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 18px;
+            border-radius: 40px;
+            border: 2px solid #fad09c;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            background: #fffcf5;
+        }
+
+        .form-group textarea {
+            border-radius: 25px;
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .contact-btn {
+            background: #f4b740;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 60px;
+            font-weight: 700;
+            color: #1e2b3a;
+            box-shadow: 0 6px 0 #b57c28;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .contact-btn:hover {
+            background: #ffc85c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #b07622;
+        }
+
+        .contact-form small {
+            display: block;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #6b7a88;
+            text-align: center;
+        }
+
+        /* ----- FOOTER ----- */
+        .footer-large {
+            background: #2d4a5a;
+            color: white;
+            border-radius: 40px 40px 20px 20px;
+            padding: 40px 40px 25px;
+            margin-top: 50px;
+            border: 1px solid #ffd9a5;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #f4b740;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col h4 i {
+            font-size: 1.3rem;
+        }
+
+        .footer-col p {
+            margin: 12px 0;
+            color: #ddd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-col p i {
+            color: #f4b740;
+            width: 24px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col a {
+            color: #ddd;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+        }
+
+        .footer-col a i {
+            color: #f4b740;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: #f4b740;
+            transform: translateX(5px);
+        }
+
+        .footer-col a:hover {
+            transform: scale(1.2);
+            color: #ffc85c;
+        }
+
+        .footer-col .website a {
+            color: #1f2a35;
+            background: #f4b740;
+            padding: 7px 10px;
+            border-radius: 40px;
+            font-weight: 400;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+            transition: all 0.2s;
+        }
+
+        .footer-col .website a:hover {
+            background: #ffc85c;
+            transform: translateX(0) scale(1.02);
+            box-shadow: 0 4px 0 #b07622;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 2px solid #f4b740;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            color: #ddd;
+        }
+
+        .footer-bottom i {
+            color: #f4b740;
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 800px) {
+            .main-content {
+                padding: 15px 20px;
+            }
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .spacer {
+                height: 130px;
+            }
+            .hero-images img {
+                width: 80px;
+                height: 80px;
+            }
+            .hero-images {
+                justify-content: center;
+            }
+            .contact-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ----- SCROLL MARGIN ----- */
+        #home,
+        #programs,
+        #parents,
+        #events,
+        #contact {
+            scroll-margin-top: 100px;
+        }
+
+        .view{
+            background:#f4b740; padding:8px 24px; border-radius:40px; font-weight:600;
+        }
+
+        .get{
+            margin-top: 15px;
+        }
+
+        .we{
+            margin-bottom: 20px; font-size: 1.1rem;
+        }
+        .our{
+            margin-top:18px; border-left:4px solid #f4b740; padding-left:15px;
+        }
+        .our i{
+            color:#f4b740;
+        }
+        .website a i {
+            color: #1f2a35;
+        }
+        .the{
+            font-style:italic;
+        }
+        .emily{
+            color:#f4b740; font-size:1.8rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- FIXED HEADER -->
+    <header class="fixed-header">
+        <nav class="navbar">
+            <div class="logo-area">
+                <div class="logo-icon"><i class="fa-regular fa-star"></i></div>
+                <span class="logo-text">UltimateChild</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active-nav" data-target="home"><i class="ri-home-line"></i> Home</a>
+                <a href="#parents" data-target="parents"><i class="fa-regular fa-heart"></i> Parents</a>
+                <a href="#programs" data-target="programs"><i class="ri-book-open-line"></i> Programs</a>
+                <a href="#events" data-target="events"><i class="fa-regular fa-calendar"></i> Events</a>
+                <a href="#contact" data-target="contact"><i class="fa-regular fa-envelope"></i> Contact</a>
+            </div>
+        </nav>
+    </header>
+    <div class="spacer" id="home"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="site-wrapper">
+        <div class="main-content">
+            <!-- HERO SECTION -->
+            <div class="hero-picto">
+                <div class="hero-text">
+                    <h1 class="hero-title">Ultimate Child <span>Education Center</span></h1>
+                </div>
+                <div class="hero-images">
+                    <img src="https://images.pexels.com/photos/15850687/pexels-photo-15850687.jpeg" alt="Child reading a book" loading="lazy">
+                    <img src="https://images.pexels.com/photos/8613070/pexels-photo-8613070.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop" alt="Child studying with laptop">
+                </div>
+            </div>
+
+            <!-- WELCOME BADGE -->
+            <div class="welcome-badge">
+                <i class="fa-regular fa-hand-peace"></i> <span>Welcome to the Best Start for Your Child</span>
+            </div>
+
+            <!-- AWARD STRIP -->
+            <div class="award-strip">
+                <div class="award-item"><i class="fa-regular fa-star"></i> <span>Award-Winning Program</span></div>
+                <div class="award-item"><i class="fa-regular fa-gem"></i> <span>High-Quality Learning</span></div>
+                <div class="award-item highlight"><span>Making a Difference Every Day</span></div>
+            </div>
+
+            <!-- KPI GRID -->
+            <div class="kpi-grid">
+                <div class="kpi-card"><i class="fa-regular fa-user kpi-icon"></i><div class="kpi-value">30.3k</div><div class="kpi-label">Students</div></div>
+                <div class="kpi-card"><i class="fa-regular fa-heart kpi-icon"></i><div class="kpi-value">40.5k</div><div class="kpi-label">Parents</div></div>
+                <div class="kpi-card"><i class="fa-regular fa-thumbs-up kpi-icon"></i><div class="kpi-value">88.9%</div><div class="kpi-label">Success Rate</div></div>
+                <div class="kpi-card"><i class="fa-regular fa-clock kpi-icon"></i><div class="kpi-value">6.3+</div><div class="kpi-label">Years Experience</div></div>
+            </div>
+
+            <!-- PARENTS & EVENTS SECTION -->
+            <div class="two-col" id="parents">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <i class="fa-regular fa-user"></i>
+                        <h2>What Parents Say</h2>
+                    </div>
+                    <div class="testimonial-avatar">
+                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&auto=format" alt="Happy parent Emily">
+                        <div class="emily"><i class="fa-solid fa-quote-left"></i></div>
+                        <span><strong>— Emily et David R.</strong></span>
+                    </div>
+                    <p class="the">“The teachers genuinely care, and our son has never been more excited to learn. It's a warm, creative community.”</p>
+                    <div class="our">
+                        <i class="fa-regular fa-message"></i> Parent voices shape our approach
+                    </div>
+                    <!-- Large family photo at bottom -->
+                    <img class="parents-bottom-photo" src="https://images.pexels.com/photos/6667307/pexels-photo-6667307.jpeg" alt="Happy family with children">
+                </div>
+
+                <div class="event-card">
+                    <div class="event-header">
+                        <i class="fa-regular fa-calendar-check"></i>
+                        <h2>Upcoming Events</h2>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date"><span class="day">15</span><span class="month">JUN</span></div>
+                        <div><p>Spring Picnic et Family Day</p><span>Central Park, 10am-2pm</span></div>
+                        <img class="event-thumb" src="https://images.pexels.com/photos/35107560/pexels-photo-35107560.jpeg" alt="Children playing in park">
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date"><span class="day">22</span><span class="month">JUN</span></div>
+                        <div><p>Little Masters Art Expo</p><span>School Hall, 5pm</span></div>
+                        <img class="event-thumb" src="https://images.pexels.com/photos/8612962/pexels-photo-8612962.jpeg" alt="Child painting">
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date"><span class="day">5</span><span class="month">JUL</span></div>
+                        <div><p>Parent-Teacher Conference</p><span>Online et Classrooms</span></div>
+                        <img class="event-thumb" src="https://images.pexels.com/photos/7169659/pexels-photo-7169659.jpeg" alt="Parent and teacher meeting">
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date"><span class="day">16</span><span class="month">MAR</span></div>
+                        <div><p>Children's Rights Workshop</p><span>Community Center</span></div>
+                        <img class="event-thumb" src="https://images.pexels.com/photos/6191540/pexels-photo-6191540.jpeg" alt="Children in workshop">
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date"><span class="day">31</span><span class="month">OCT</span></div>
+                        <div><p>Parents' Words on the Key to Happy Kids</p><span>Community Center</span></div>
+                        <img class="event-thumb" src="https://images.pexels.com/photos/4145347/pexels-photo-4145347.jpeg" alt="Children in workshop">
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROGRAMS SECTION -->
+            <div id="programs">
+                <div class="level-banner">
+                    <div class="level-text">
+                        We Meet Children at Their Level
+                    </div>
+                    <a href="#" class="level-link"><i class="ri-download-line"></i> www.DownloadNewThemes.com <i class="ri-emotion-happy-fill"></i></a>
+                </div>
+                <div class="testimonial-header">
+                    <i class="fa-solid fa-book"></i>
+                    <h2>Our Programs</h2>
+                </div>
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <i class="fa-solid fa-paintbrush"></i>
+                        <h3>Art Classes</h3>
+                        <p>Creative expression for young artists</p>
+                    </div>
+                    <div class="program-card">
+                        <i class="fa-solid fa-flask"></i>
+                        <h3>Science Lab</h3>
+                        <p>Hands-on experiments and discovery</p>
+                    </div>
+                    <div class="program-card">
+                        <i class="fa-solid fa-music"></i>
+                        <h3>Music</h3>
+                        <p>Instruments, rhythm, and song</p>
+                    </div>
+                    <div class="program-card">
+                        <i class="fa-solid fa-futbol"></i>
+                        <h3>Sports</h3>
+                        <p>Teamwork and healthy activity</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KEY TAGLINE -->
+            <div class="key-tagline">
+                <i class="fa-regular fa-heart"></i> <span>Parent Voices = Happy Children</span> <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <!-- NEWS SECTION -->
+            <div class="news-section" id="events">
+                <div class="section-header">
+                    <h2><i class="fa-regular fa-newspaper"></i> Latest News et Articles</h2>
+                    <span class="view">View All</span>
+                </div>
+                <div class="news-grid">
+                    <div class="news-card">
+                        <img class="news-img" src="https://picsum.photos/id/20/400/200" alt="Children playing">
+                        <div class="news-content">
+                            <div class="news-meta"><i class="fa-regular fa-calendar"></i> June 2, 2025</div>
+                            <h3>The Power of Free Play</h3>
+                            <p>How unstructured time boosts creativity</p>
+                            <span class="read-more">Read more <i class="ri-arrow-right-line"></i></span>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img class="news-img" src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&h=200&fit=crop" alt="Award ceremony">
+                        <div class="news-content">
+                            <div class="news-meta"><i class="fa-regular fa-calendar"></i> May 28, 2025</div>
+                            <h3>Innovation in Education Award</h3>
+                            <p>Recognized for excellence in early learning</p>
+                            <span class="read-more">Read more <i class="ri-arrow-right-line"></i></span>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img class="news-img" src="https://images.pexels.com/photos/8613072/pexels-photo-8613072.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop" alt="Child with tablet">
+                        <div class="news-content">
+                            <div class="news-meta"><i class="fa-regular fa-calendar"></i> May 20, 2025</div>
+                            <h3>Parent-Child Workshop</h3>
+                            <p>Building connections through shared activities</p>
+                            <span class="read-more">Read more <i class="ri-arrow-right-line"></i></span>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img class="news-img" src="https://images.pexels.com/photos/8618015/pexels-photo-8618015.jpeg" alt="Children reading">
+                        <div class="news-content">
+                            <div class="news-meta"><i class="fa-regular fa-calendar"></i> October 17, 2025</div>
+                            <h3>Literacy Day Celebration</h3>
+                            <p>Stories and imagination come alive</p>
+                            <span class="read-more">Read more <i class="ri-arrow-right-line"></i></span>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img class="news-img" src="https://images.pexels.com/photos/8923028/pexels-photo-8923028.jpeg" alt="Art class">
+                        <div class="news-content">
+                            <div class="news-meta"><i class="fa-regular fa-calendar"></i> July 26, 2025</div>
+                            <h3>Summer Art Intensive</h3>
+                            <p>Register now for our August sessions</p>
+                            <span class="read-more">Read more <i class="ri-arrow-right-line"></i></span>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img class="news-img" src="https://images.pexels.com/photos/8923258/pexels-photo-8923258.jpeg" alt="Science experiment">
+                        <div class="news-content">
+                            <div class="news-meta"><i class="fa-regular fa-calendar"></i> January 10, 2025</div>
+                            <h3>Young Scientists Fair</h3>
+                            <p>Celebrating curiosity and discovery</p>
+                            <span class="read-more">Read more <i class="ri-arrow-right-line"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACT SECTION (ENRICHIE) -->
+            <div class="contact-section" id="contact">
+                <div class="contact-flex">
+                    <div class="contact-info">
+                        <h3><i class="fa-regular fa-paper-plane"></i> Get in Touch</h3>
+                        <p class="we">We'd love to hear from you. Schedule a tour or ask any question.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="ri-map-pin-line"></i>
+                                <div>
+                                    <strong>Visit Us</strong>
+                                    <span>123 Kids Avenue, Family City, FC 12345</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="ri-phone-line"></i>
+                                <div>
+                                    <strong>Call Us</strong>
+                                    <span>+1 (555) 123-4567</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fa-regular fa-envelope"></i>
+                                <div>
+                                    <strong>Email Us</strong>
+                                    <span>hello@ultimatechild.edu</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fa-regular fa-clock"></i>
+                                <div>
+                                    <strong>Office Hours</strong>
+                                    <span>Mon-Fri: 8am - 6pm<br>Sat: 9am - 2pm</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="ri-globe-line"></i>
+                                <div>
+                                    <strong>Social Media</strong>
+                                    <span>@ultimatechild</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fa-regular fa-calendar-check"></i>
+                                <div>
+                                    <strong>Tour Booking</strong>
+                                    <span>Schedule online or call us</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h4><i class="fa-regular fa-message"></i> Quick Message</h4>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" value="Jane Smith">
+                            <input type="email" placeholder="Your Email" value="parent@example.com">
+                            <textarea placeholder="Your Message (optional)">I'd like to schedule a tour</textarea>
+                        </div>
+                        <button type="button" class="contact-btn"><i class="fa-regular fa-paper-plane"></i> Send Message</button>
+                        <small><i class="fa-regular fa-clock"></i> We'll reply within 24h</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="footer-large">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4><i class="fa-regular fa-star"></i> UltimateChild</h4>
+                        <p><i class="ri-map-pin-line"></i> 123 Kids Ave, Family City</p>
+                        <p><i class="ri-phone-line"></i> +1 555 123 4567</p>
+                        <p><i class="fa-regular fa-envelope"></i> hello@ultimatechild.edu</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4><i class="fa-regular fa-compass"></i> Explore</h4>
+                        <p><a href="#home"><i class="ri-home-line"></i> Home</a></p>
+                        <p><a href="#programs"><i class="ri-book-open-line"></i> Programs</a></p>
+                        <p><a href="#events"><i class="fa-regular fa-calendar"></i> Events</a></p>
+                        <p><a href="#contact"><i class="fa-regular fa-envelope"></i> Contact</a></p>
+                    </div>
+                    <div class="footer-col">
+                        <h4><i class="ri-information-line"></i> Resources</h4>
+                        <p><a href="#"><i class="ri-pencil-ruler-line"></i> Blog</a></p>
+                        <p><a href="#"><i class="fa-regular fa-heart"></i> Parents' Corner</a></p>
+                        <p><a href="#"><i class="fa-regular fa-circle-question"></i> FAQs</a></p>
+                        <p><a href="#"><i class="fa-regular fa-newspaper"></i> Newsletter</a></p>
+                    </div>
+                    <div class="footer-col">
+                        <h4><i class="ri-download-line"></i> Download</h4>
+                        <div class="website">
+                            <a href="#"><i class="ri-article-line"></i> www.DownloadNewThemes.com</a>
+                        </div>
+                        <p class="get"><i class="ri-cellphone-line"></i> Get our app</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <span><i class="fa-regular fa-copyright"></i> 2025 Ultimate Child Education – All Rights Reserved</span>
+                    <span><i class="fa-regular fa-heart"></i> Where Little Minds Bloom</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- NAVIGATION SCRIPT -->
+    <script>
+        (function() {
+            const navLinks = document.querySelectorAll('.nav-links a:not(.nav-button)');
+            
+            function setActive(anchor) {
+                navLinks.forEach(l => l.classList.remove('active-nav'));
+                anchor.classList.add('active-nav');
+            }
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    setActive(this);
+                    
+                    let targetElement = null;
+                    if (targetId === 'home') targetElement = document.getElementById('home');
+                    else if (targetId === 'programs') targetElement = document.getElementById('programs');
+                    else if (targetId === 'parents') targetElement = document.getElementById('parents');
+                    else if (targetId === 'events') targetElement = document.getElementById('events');
+                    else if (targetId === 'contact') targetElement = document.getElementById('contact');
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
